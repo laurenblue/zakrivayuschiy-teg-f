@@ -19,9 +19,9 @@
   min-block-size: 100dvb;
   font-family: var(--font-inter, Arial, sans-serif);
   color: var(--accent-color);
-  min-width: 375px;
-  max-width: 696px;
+  max-width: 375px;
   background: var(--themes-background);
+  font-variation-settings: 'wght' var(--font-main-weight, 400);
 }
 
 .page-background {
@@ -51,7 +51,6 @@
 .header__title {
   font-size: 49px;
   font-style: normal;
-  font-weight: 400;
   line-height: normal;
   text-transform: uppercase;
   margin-top: 120px;
@@ -61,7 +60,6 @@
 .header__subtitle {
   font-size: 14px;
   font-style: normal;
-  font-weight: 400;
   line-height: normal;
   text-transform: uppercase;
   margin-bottom: 22px;
@@ -78,7 +76,6 @@
 .theme-menu__button {
   font-size: 14px;
   font-style: normal;
-  font-weight: 400;
   line-height: normal;
   text-transform: uppercase;
 }
@@ -152,7 +149,6 @@
   margin-top: 26px;
   font-size: 18px;
   font-style: normal;
-  font-weight: 400;
   line-height: 21px; /* 116.667% */
   width: 86%;
 }
@@ -175,7 +171,6 @@
     1px -1px var(--watermark-stroke-color),
     -1px -1px var(--watermark-stroke-color);
   font-family: var(--font-pressstart2p, sans-serif);
-  font-weight: 400;
   line-height: normal;
   text-transform: uppercase;
   font-size: 14px;
@@ -261,7 +256,6 @@
   display: flex;
   font-size: 14px;
   font-style: normal;
-  font-weight: 400;
   line-height: 90%; /* 12.6px */
   margin-top: 10px;
   margin-bottom: 12px;
@@ -294,7 +288,6 @@
   color: var(--themes-main-color, #000);
   font-size: 14px;
   font-style: normal;
-  font-weight: 400;
   line-height: 150%;
   text-transform: uppercase;
   width: 62%;
@@ -307,7 +300,6 @@
 
 .modal__inner-container {
   display: flex;
-  font-weight: 400;
   text-transform: uppercase;
   gap: 20px;
   justify-content: center;
@@ -389,6 +381,13 @@
   border: 2px solid var(--color-accent);
 }
 
+@media (width > 375px) and (width < 1440px) {
+  .page {
+    min-width: 375px;
+    max-width: 696px;
+  }
+}
+
 @media (width >= 1440px) {
   .header__title {
     font-size: 65px;
@@ -415,13 +414,24 @@
     min-height: 193px;
   }
 
-  .svg-floppy {
-    width: 39px;
-    height: 39px;
-    margin: 0;
-  }
-
   .modal__title {
     width: 200px;
+  }
+}
+
+@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
+  .watermark::before {
+    text-shadow: none;
+    -webkit-text-stroke: 0.1rem var(--themes-background, #fff);
+    text-stroke: 0.1rem var(--themes-background, #fff);
+  }
+}
+
+@supports (
+  (font-variation-settings: 'wght' var(--font-main-weight)) or
+    (font-variation-settings: 'wght' normal)
+) {
+  .page {
+    font-variation-settings: 'wght' var(--font-main-weight);
   }
 }
