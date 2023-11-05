@@ -381,7 +381,7 @@
   border: 2px solid var(--color-accent);
 }
 
-@media (width > 375px) and (width < 1440px) {
+@media (width > 375px) {
   .page {
     min-width: 375px;
     max-width: 696px;
