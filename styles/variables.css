@@ -1,1 +1,16 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+  --themes-main-color: #000;
+  --themes-background: #fff;
+  --font-inter: "Inter";
+  --font-pressstart2p: "PressStart2P";
+  --font-main-weight: 400;
+  --font-inter-secondary-weight: 700;
+  --watermark-color: #000;
+  --watermark-stroke-color: #fff;
+  --color-heart-contour: #000;
+  --color-heart-main: red;
+  --color-heart-core: #fff;
+  --color-accent: #000;
+  --color-button-hover: #fff;
+}
