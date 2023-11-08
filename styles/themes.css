@@ -4,46 +4,75 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+:root.theme-light {
+  --themes-background: #fff;
+  --themes-main-color: #000;
+  --font-inter: "Inter", sans-serif;
+  --font-pressstart2p: "PressStart2P", fantasy;
+  --font-main-weight: 400;
+  --font-inter-secondary-weight: 700;
+  --watermark-color: #000;
+  --watermark-stroke-color: #fff;
+  --color-heart-contour: #000;
+  --color-heart-main: red;
+  --color-heart-core: #fff;
+  --color-accent: #000;
+  --color-button-hover: #fff;
+  --background: repeating-linear-gradient(#d3d3d3 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(90deg, #d3d3d3 0 2px, transparent 2px 4px),
+    linear-gradient(180deg, #e7e7e7 0%, #e7e7e7 0, 01%, #1a1a1a 100%);
+}
+
 :root.theme-dark {
-  --accent-color: #00cc14;
-  --main-color: #000;
-  --page-bg-color: #000;
-  --page-bg-color-from: #007f0c;
-  --page-bg-color-to: #004306;
-  --stroke-color: #000;
   --themes-background: #000;
   --themes-main-color: #00cc14;
   --color-heart-contour: #00cc14;
+  --color-heart-main: red;
+  --color-heart-core: #000;
+  --color-accent: #00cc14;
+  --color-button-hover: #00cc14;
+  --font-inter: "Inter", sans-serif;
+  --font-pressstart2p: "PressStart2P", fantasy;
+  --font-main-weight: 465;
+  --font-inter-secondary-weight: 785;
+  --watermark-color: #00cc14;
+  --watermark-stroke-color: #000;
+  --background: 
+  repeating-linear-gradient(transparent 0px, transparent 2px, #000 2px, #000 4px),
+  repeating-linear-gradient(to left, transparent 0px, transparent 2px, #000 2px, #000 4px),
+  repeating-linear-gradient(180deg, #007F0C 0.01%, #004306 100%);
 }
+
+.theme-dark .button__text {
+  color: var(--themes-main-color, #000);
+  mix-blend-mode: difference;
+}
+
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --accent-color: #00cc14;
-    --main-color: #000;
-    --page-bg-color: #000;
-    --page-bg-color-from: #007f0c;
-    --page-bg-color-to: #004306;
-    --stroke-color: #000;
     --themes-background: #000;
+    --themes-main-color: #00cc14;
+    --color-heart-contour: #00cc14;
+    --color-heart-main: red;
+    --color-heart-core: #000;
+    --color-accent: #00cc14;
+    --color-button-hover: #00cc14;
+    --font-inter: "Inter", sans-serif;
+    --font-pressstart2p: "PressStart2P", fantasy;
+    --font-main-weight: 465;
+    --font-inter-secondary-weight: 785;
+    --watermark-color: #00cc14;
+    --watermark-stroke-color: #000;
+    --background: 
+    repeating-linear-gradient(transparent 0px, transparent 2px, #000 2px, #000 4px),
+    repeating-linear-gradient(to left, transparent 0px, transparent 2px, #000 2px, #000 4px),
+    repeating-linear-gradient(180deg, #007F0C 0.01%, #004306 100%);
   }
-}
 
-:root.theme-light {
-  --accent-color: #000;
-  --main-color: #fff;
-  --page-bg-color: #d3d3d3;
-  --page-bg-color-from: #e7e7e7;
-  --page-bg-color-to: #1a1a1a;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --accent-color: #000;
-    --main-color: #fff;
-    --font-weight: 400;
-    --page-bg-color: #d3d3d3;
-    --page-bg-color-from: #e7e7e7;
-    --page-bg-color-to: #1a1a1a;
-    --stroke-color: #fff;
+  .button__text {
+    color: var(--themes-main-color);
+    mix-blend-mode: difference;
   }
+
 }

@@ -18,31 +18,25 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--font-inter, Arial, sans-serif);
-  color: var(--accent-color);
+  color: var(--themes-main-color);
   max-width: 375px;
   background: var(--themes-background);
-  font-variation-settings: 'wght' var(--font-main-weight, 400);
+  font-variation-settings: "wght" var(--font-main-weight, 400);
 }
 
 .page-background {
-  background-image: repeating-linear-gradient(
-      to right,
-      var(--page-bg-color) 0 3px,
-      transparent 3px 5px
-    ),
-    repeating-linear-gradient(var(--page-bg-color) 0 3px, transparent 3px 5px),
-    linear-gradient(var(--page-bg-color-from), var(--page-bg-color-to) 100%);
-  height: 528px;
+  background-image: var(--background);
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .header {
   background-color: var(--themes-background);
   margin-top: 102px;
-  margin-bottom: 107px;
+  margin-bottom: 100px;
   width: 100%;
   border: 2px solid var(--themes-main-color, #000);
-  font-family: var(--font-pressstart2p, sans-serif);
+  font-family: var(--font-pressstart2p, fantasy);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,21 +81,20 @@
   height: 3px;
   margin-top: -3px;
   opacity: 0.6;
-  background: var(--accent-color);
+  background: var(--themes-main-color);
   scale: 0;
-  transition: scale 300ms, 0.5s;
+  transition: none;
 }
 .theme-menu__button:focus-visible {
   outline: none;
   opacity: 0.6;
+  transition: opacity ease 0.3s;
 }
 
 .theme-menu__button:focus-visible::after {
-  position: absolute;
-  top: 20px;
-  width: 85%;
-  scale: 1;
+  width: 100%;
   opacity: 0.6;
+  transition: width 0.3s, background-color 0.5s;
 }
 
 .theme-menu__button:hover {
@@ -126,6 +119,11 @@
   background-color: transparent;
 }
 
+.button__text {
+  color: var(--themes-background);
+  mix-blend-mode: difference;
+}
+
 .card {
   border: 2px solid var(--themes-main-color, #000);
   background: var(--themes-background, #fff);
@@ -142,6 +140,7 @@
   margin-top: 3px;
   margin-left: 10px;
   margin-bottom: 5px;
+  font-variation-settings: "wght";
 }
 
 .card__text {
@@ -168,9 +167,8 @@
   color: var(--watermark-color);
   text-shadow: 1px 1px var(--watermark-stroke-color),
     -1px 1px var(--watermark-stroke-color),
-    1px -1px var(--watermark-stroke-color),
-    -1px -1px var(--watermark-stroke-color);
-  font-family: var(--font-pressstart2p, sans-serif);
+    1px -1px var(--watermark-stroke-color);
+  font-family: var(--font-pressstart2p, fantasy);
   line-height: normal;
   text-transform: uppercase;
   font-size: 14px;
@@ -182,47 +180,48 @@
   width: 130px;
   height: 38px;
   padding: 9px 17px;
-  font-family: var(--font-pressstart2p, sans-serif);
+  font-family: var(--font-pressstart2p, fantasy);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 90%;
 }
 
-.card__like-button:focus {
+.button-hover:focus {
   outline: none;
 }
 
-.card__like-button:hover {
-  box-shadow: inset 13rem 0 0 0 var(--themes-main-color, #000);
-  color: var(--themes-background, #fff);
+.button-hover:hover {
+  box-shadow: inset 33.9rem 0 0 0 var(--themes-main-color, #000);
+  color: var(--themes-background);
+  transition: 0.5s ease-out;
   cursor: pointer;
 }
 
-.card__like-button:focus-visible {
+.button-hover:focus-visible {
   box-shadow: var(--themes-main-color) 6px 6px;
   color: var(--themes-main-color, #000);
 }
 
 .like__container {
-  margin-right: 25px;
+  margin-right: 22px;
   display: flex;
   align-items: center;
   justify-content: end;
-  margin-top: 23px;
+  margin-top: 24px;
   margin-bottom: 23px;
   gap: 9px;
 }
 
 .image__container {
-  aspect-ratio: 1;
   position: relative;
+  border: 2px solid var(--themes-main-color);
 }
 
 .cards {
   display: flex;
   flex-direction: column;
-  gap: 52px;
+  gap: 54px;
 }
 .button-save-container {
   display: flex;
@@ -231,7 +230,7 @@
   margin: auto;
   margin-top: 54px;
   width: 83%;
-  margin-bottom: 102px;
+  padding-bottom: 102px;
 }
 
 .svg-floppy {
@@ -243,13 +242,7 @@
 .button-save {
   border: 0.2rem solid var(--themes-main-color, #000);
   background-color: var(--themes-background, #fff);
-  box-shadow: inset 0 0 0 0 var(--themes-main-color, #000);
   font-family: var(--font-pressstart2p, "Courier New", monospace);
-  transition: 0.5s ease-out;
-}
-
-.button-save_animated:hover {
-  box-shadow: inset 33.9rem 0 0 0 var(--themes-main-color, #000);
 }
 
 .button-save__text-save {
@@ -267,7 +260,7 @@
   position: fixed;
   overflow: hidden;
   border-width: 0;
-  background-color: #000000bf;
+  background: var(--modal-color);
   block-size: 100vb;
   inline-size: 100vi;
   inset: 0;
@@ -276,7 +269,7 @@
 }
 
 .modal {
-  position: relative;
+  position: sticky;
   border: 0.2rem solid var(--themes-main-color);
   margin: 0 auto;
   background-color: var(--themes-background, #fff);
@@ -381,6 +374,11 @@
   border: 2px solid var(--color-accent);
 }
 
+.like-icon {
+  width: 38px;
+  height: 35px;
+}
+
 @media (width > 375px) {
   .page {
     min-width: 375px;
@@ -391,6 +389,7 @@
 @media (1440px <= width) {
   .header__title {
     font-size: 65px;
+    margin-top: 136px;
   }
 
   .header__subtitle {
@@ -401,37 +400,42 @@
     display: flex;
     align-items: end;
     height: 51px;
+    min-width: 335px;
+    padding: 0;
+  }
+
+  .card__text {
+    min-width: 646px;
+    margin-top: 28px;
   }
 
   .svg-floppy {
     width: 21px;
     height: 21px;
-    margin-bottom: 9px;
+    margin-bottom: 10px;
+    margin-left: 16px;
+  }
+
+  .button-save__text-save {
+    margin-top: 10px;
+    margin-left: 9px;
   }
 
   .modal {
     width: 357px;
-    min-height: 193px;
+
   }
 
   .modal__title {
-    width: 200px;
+    max-width: 200px;
   }
 }
 
-@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
-  .watermark::before {
-    text-shadow: none;
-    -webkit-text-stroke: 0.1rem var(--themes-background, #fff);
-    text-stroke: 0.1rem var(--themes-background, #fff);
-  }
-}
-
-@supports (
-  (font-variation-settings: 'wght' var(--font-main-weight)) or
-    (font-variation-settings: 'wght' normal)
+@supports (  (-webkit-text-stroke: 1px var(--themes-background)) or (text-stroke: 1px var(--themes-background))
 ) {
-  .page {
-    font-variation-settings: 'wght' var(--font-main-weight);
+  .card__img-label {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--themes-background);
+    text-stroke: 1px var(--themes-background);
   }
 }
