@@ -1,13 +1,13 @@
 <svg width="256" height="256" viewBox="0 0 256 256" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 <style>
-      @media (prefers-color-scheme: dark) {
-        :root {
-          fill: #fff;
-        }
-      }  
       @media (prefers-color-scheme: light) {
         :root {
           fill: #000;
+        }
+      }  
+      @media (prefers-color-scheme: dark) {
+        :root {
+          fill: #00CC14;
         }
       }  
 </style>

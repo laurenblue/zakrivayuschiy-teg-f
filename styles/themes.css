@@ -37,17 +37,21 @@
   --font-inter-secondary-weight: 785;
   --watermark-color: #00cc14;
   --watermark-stroke-color: #000;
-  --background: 
-  repeating-linear-gradient(transparent 0px, transparent 2px, #000 2px, #000 4px),
-  repeating-linear-gradient(to left, transparent 0px, transparent 2px, #000 2px, #000 4px),
-  repeating-linear-gradient(180deg, #007F0C 0.01%, #004306 100%);
+  --background: repeating-linear-gradient(
+      transparent 0px,
+      transparent 2px,
+      #000 2px,
+      #000 4px
+    ),
+    repeating-linear-gradient(
+      to left,
+      transparent 0px,
+      transparent 2px,
+      #000 2px,
+      #000 4px
+    ),
+    repeating-linear-gradient(180deg, #007f0c 0.01%, #004306 100%);
 }
-
-.theme-dark .button__text {
-  color: var(--themes-main-color, #000);
-  mix-blend-mode: difference;
-}
-
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -64,15 +68,19 @@
     --font-inter-secondary-weight: 785;
     --watermark-color: #00cc14;
     --watermark-stroke-color: #000;
-    --background: 
-    repeating-linear-gradient(transparent 0px, transparent 2px, #000 2px, #000 4px),
-    repeating-linear-gradient(to left, transparent 0px, transparent 2px, #000 2px, #000 4px),
-    repeating-linear-gradient(180deg, #007F0C 0.01%, #004306 100%);
+    --background: repeating-linear-gradient(
+        transparent 0px,
+        transparent 2px,
+        #000 2px,
+        #000 4px
+      ),
+      repeating-linear-gradient(
+        to left,
+        transparent 0px,
+        transparent 2px,
+        #000 2px,
+        #000 4px
+      ),
+      repeating-linear-gradient(180deg, #007f0c 0.01%, #004306 100%);
   }
-
-  .button__text {
-    color: var(--themes-main-color);
-    mix-blend-mode: difference;
-  }
-
 }

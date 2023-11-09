@@ -13,7 +13,9 @@
   --color-heart-core: #fff;
   --color-accent: #000;
   --color-button-hover: #fff;
+  --color-diff: #fff;
   --modal-color: #000000bf;
+  --transition: 0.3s ease;
   --background: repeating-linear-gradient(#d3d3d3 0 2px, transparent 2px 4px),
     repeating-linear-gradient(90deg, #d3d3d3 0 2px, transparent 2px 4px),
     linear-gradient(180deg, #e7e7e7 0%, #e7e7e7 0, 01%, #1a1a1a 100%);
