@@ -72,32 +72,11 @@
   font-style: normal;
   line-height: normal;
   text-transform: uppercase;
-  transition: var(--transition);
 }
 
 .theme-menu__button:focus {
   outline: none;
-}
-
-.theme-menu__button::after {
-  content: "";
-  display: block;
-  top: 20px;
-  width: 0%;
-  height: 3px;
-  margin-top: -3px;
   opacity: 0.6;
-  background: var(--themes-main-color);
-  scale: 0;
-  transition: background-color var(--transition);
-}
-
-.theme-menu__button:focus-visible {
-  opacity: 0.6;
-}
-
-.theme-menu__button:focus-visible::after {
-  inline-size: 100%;
 }
 
 .theme-menu__button:hover {
@@ -115,6 +94,24 @@
   position: absolute;
   left: -14px;
   animation: marker 0.5s infinite ease-in-out alternate;
+}
+
+.theme-menu__button::after {
+  content: "";
+  inline-size: 100%;
+  block-size: 2px;
+  background: var(--themes-main-color);
+  left: 0;
+  bottom: -2px;
+  display: block;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+  transform-origin: left center;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scale(1);
+  outline: none;
 }
 
 .button {
@@ -138,7 +135,7 @@
   margin-top: 3px;
   margin-left: 10px;
   margin-bottom: 5px;
-  font-variation-settings: "wght" var(--font-main-weight, 700);
+  font-variation-settings: "wght" var(--font-inter-secondary-weight, 700);
 }
 
 .card__text {
@@ -184,37 +181,44 @@
 .button-hover {
   background-color: var(--themes-background);
   border: 2px solid var(--themes-main-color);
-  position: relative;
   overflow-x: hidden;
-  transition: var(--transition);
   cursor: pointer;
+  position: relative;
 }
 
 .button-hover:focus {
   outline: none;
 }
 
-.button-hover:hover {
-  box-shadow: inset 33.9rem 0 0 0 var(--themes-main-color, #000);
-  color: var(--themes-background);
-  transition: box-shadow 0.5s ease-out;
-  cursor: pointer;
-}
-
 .button-hover:focus-visible {
-  box-shadow: var(--themes-main-color) 2px 2px 0px 0px;
+  outline: none;
+  box-shadow: 2px 2px 0px 0px var(--themes-main-color);
+  transition: box-shadow 0.3s ease;
 }
 
 .button-hover::before {
   position: absolute;
   content: "";
-  inline-size: 100%;
+  inline-size: 100%; 
   block-size: 100%;
-  inset-inline-start: -50%;
-  inset-block-start: 0;
-  background-color: var(--accent-color);
+  background: var(--themes-main-color);
+  left: 0;
+  top: 0;
+  display: block;
   transform: scaleX(0);
-  transition: background-color 0.5s ease-out;
+  transition: transform 0.5s ease-in-out;
+  transform-origin: left center;
+}
+
+.button-hover:hover::before {
+  transform: scaleX(1);
+  outline: none;
+}
+
+.button__text {
+  position: relative;
+  mix-blend-mode: difference;
+  color: var(--color-button-hover);
 }
 
 .like__container {
@@ -250,10 +254,11 @@
 }
 
 .svg-floppy {
-  width: 28px;
-  height: 28px;
-  margin-top: 14px;
-  mix-blend-mode: hard-light;
+  width: 28px; 
+  height: 28px; 
+  margin-top: 14px; 
+  color: var(--color-button-hover);
+  mix-blend-mode: difference;
 }
 
 .button-save {
@@ -316,7 +321,8 @@
 }
 
 .modal__svg-floppy {
-  color: var(--themes-main-color, #000);
+  color: var(--color-button-hover);
+  mix-blend-mode: difference;
   width: 39px;
   height: 39px;
 }
@@ -369,7 +375,6 @@
   border: 2px solid transparent;
   background-color: transparent;
   cursor: pointer;
-  transition: border 0.3s ease;
 }
 
 .card__icon-button:focus {
