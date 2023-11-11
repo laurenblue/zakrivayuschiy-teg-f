@@ -72,6 +72,7 @@
   font-style: normal;
   line-height: normal;
   text-transform: uppercase;
+  transition: opacity 0.3s ease;
 }
 
 .theme-menu__button:focus {
@@ -375,6 +376,7 @@
   border: 2px solid transparent;
   background-color: transparent;
   cursor: pointer;
+  transition: border 0.3s ease; 
 }
 
 .card__icon-button:focus {
