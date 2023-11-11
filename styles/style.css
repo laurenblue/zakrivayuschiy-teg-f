@@ -184,6 +184,7 @@
   overflow-x: hidden;
   cursor: pointer;
   position: relative;
+  transition: box-shadow 0.3s ease;
 }
 
 .button-hover:focus {
@@ -193,13 +194,12 @@
 .button-hover:focus-visible {
   outline: none;
   box-shadow: 2px 2px 0px 0px var(--themes-main-color);
-  transition: box-shadow 0.3s ease;
 }
 
 .button-hover::before {
   position: absolute;
   content: "";
-  inline-size: 100%; 
+  inline-size: 100%;
   block-size: 100%;
   background: var(--themes-main-color);
   left: 0;
@@ -254,9 +254,9 @@
 }
 
 .svg-floppy {
-  width: 28px; 
-  height: 28px; 
-  margin-top: 14px; 
+  width: 28px;
+  height: 28px;
+  margin-top: 14px;
   color: var(--color-button-hover);
   mix-blend-mode: difference;
 }
